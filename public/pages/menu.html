@@ -44,8 +44,10 @@
       </div>
 
       <div class="menu-container">
-        <!-- ADD FORM -->
-        <form class="menu-form" id="menuItemForm" onsubmit="submitPresenter()">
+        <!------------------------>
+        <!------- ADD FORM ------->
+        <!------------------------>
+        <form class="menu-form" id="menuItemForm" onsubmit="">
           <div class="menu-form-container">
             <h3>Add a new item to your menu</h3>
             <div class="menu-form-input">
@@ -81,6 +83,17 @@
               />
             </div>
 
+            <div class="menu-form-input">
+              <label><b>Type</b></label>
+              <select id="itemTypeSelect" name="Item Type" required>
+                <option value="" selected disabled hidden
+                  >Choose a presenter</option
+                >
+                <option value="1">Drink</option>
+                <option value="2">Food</option>
+              </select>
+            </div>
+
             <div class="menu-form-submit">
               <button class="add-item-cancel" onclick="closeForm()">
                 Cancel
@@ -91,6 +104,60 @@
             </div>
           </div>
         </form>
+
+        <!------------------------>
+        <!------- EDIT FORM ------>
+        <!------------------------>
+        <form class="menu-form" id="editMenuItemForm" onsubmit="">
+          <div class="menu-form-container">
+            <h3>Edit Menu Item</h3>
+            <div class="menu-form-input">
+              <label><b>Item Name</b></label>
+              <input
+                id="item-name-input"
+                type="text"
+                placeholder="Item Name"
+                name="Name"
+                required
+              />
+            </div>
+
+            <div class="menu-form-input">
+              <label><b>Cost</b></label>
+              <input
+                id="item-cost-input"
+                type="number"
+                placeholder="0.00"
+                name="Cost"
+                required
+              />
+            </div>
+
+            <div class="menu-form-input">
+              <label><b>Description</b></label>
+              <input
+                id="item-desc-input"
+                type="text"
+                placeholder="Item Description"
+                name="Description"
+                pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              />
+            </div>
+
+            <div class="menu-form-submit">
+              <button class="add-item-cancel" onclick="closeEditForm()">
+                Cancel
+              </button>
+              <button type="submit" class="add-item-submit">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!------------------------>
+        <!------- MENU NAV ------->
+        <!------------------------>
         <div class="menu-nav">
           <div>
             <h3>Manage Your Menu</h3>
@@ -103,13 +170,17 @@
           </div>
         </div>
 
+        <!------------------------>
+        <!------- MENU LIST ------>
+        <!------------------------>
         <div class="menu-items-container">
           <div class="items-section">
             <div class="section-title">
               <h2>Drinks</h2>
             </div>
+
             <div class="items-list">
-              <div class="menu-item">
+              <div class="menu-item" onclick="openEditForm()">
                 <div class="item-name">
                   <h4>Budlight</h4>
                 </div>
@@ -119,7 +190,7 @@
                 </div>
               </div>
 
-              <div class="menu-item">
+              <div class="menu-item" onclick="openEditForm()">
                 <div class="item-name">
                   <h4>Angry Orchard's Cider</h4>
                 </div>
@@ -129,7 +200,7 @@
                 </div>
               </div>
 
-              <div class="menu-item">
+              <div class="menu-item" onclick="openEditForm()">
                 <div class="item-name">
                   <h4>Lime Margarita</h4>
                 </div>
@@ -146,7 +217,7 @@
               <h2>Food</h2>
             </div>
             <div class="items-list">
-              <div class="menu-item">
+              <div class="menu-item" onclick="openEditForm()">
                 <div class="item-name">
                   <h4>Fries</h4>
                 </div>
@@ -158,6 +229,11 @@
             </div>
           </div>
         </div>
+
+        <!------------------------>
+        <!------ ITEM POPUP ------>
+        <!------------------------>
+        <div class="item-popup"></div>
       </div>
     </div>
 
