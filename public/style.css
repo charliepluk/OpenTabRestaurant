@@ -407,6 +407,14 @@ nav {
   color: #fefefe;
   border: none;
   box-shadow: 1px 1px 3px rgb(71, 71, 71);
+  font-weight: 600;
+  outline: none;
+}
+
+#addMenuItem:hover {
+  background-color: #ff8856;
+  color: #fefefe;
+  cursor: pointer;
 }
 
 .menu-items-container {
@@ -426,6 +434,24 @@ nav {
 
 .section-title h2 {
   font-weight: 900;
+}
+
+.items-list {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.menu-item {
+  border-radius: 5px;
+  background-color: #ededed;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.menu-item:hover {
+  background-color: #ff9466;
+  color: #fefefe;
+  cursor: pointer;
 }
 
 /********************************************/
