@@ -64,10 +64,6 @@ nav {
   background-color: #ff9466;
 }
 
-.nav-links {
-  list-style: none;
-}
-
 .nav-links li {
   display: inline-block;
   margin-left: 15px;
@@ -455,6 +451,66 @@ nav {
 }
 
 /********************************************/
+/**************** MENU FORM *****************/
+/********************************************/
+.menu-form {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.6);
+}
+
+.menu-form-container {
+  background-color: #fefefe;
+  padding: 30px 40px;
+  margin-right: 20%;
+  margin-bottom: 20%;
+  width: 500px;
+}
+
+.menu-form-container h3 {
+  margin-bottom: 15px;
+  font-weight: 900;
+}
+
+.menu-form-container div {
+  padding: 10px;
+}
+
+.menu-form-input input {
+  width: 145px;
+  padding: 4px;
+  float: right;
+  color: black;
+  border-radius: 4px;
+}
+
+.menu-form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-form-submit button {
+  margin-top: 25px;
+  margin-left: 10px;
+  padding: 6px;
+  width: 80px;
+  color: #fefefe;
+  background-color: #ff9466;
+  box-shadow: 0 2px 8px rgba(192, 192, 192, 0.788);
+  border: none;
+  border-radius: 2px;
+}
+
+.menu-form-submit button:hover {
+  background-color: #ff8856;
+  cursor: pointer;
+}
+
+/********************************************/
 /****************** ORDERS ******************/
 /********************************************/
 .orders-container {
@@ -486,28 +542,32 @@ nav {
 /********************************************/
 .picture-container {
   margin-top: 80px;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture {
+  height: 100%;
+  width: 100%;
   background: url(./images/Bar.jpg);
   filter: blur(2px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 70vh;
   background-attachment: fixed;
 }
 
 .text {
+  position: fixed;
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
   width: 80%;
-  height: 220px;
+  height: auto;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
@@ -524,7 +584,6 @@ nav {
   opacity: 0.6;
   transition: 0.3s;
   border-radius: 8px;
-  display: inline-block;
   text-decoration: none;
   cursor: pointer;
 }
@@ -533,18 +592,30 @@ nav {
   opacity: 1;
 }
 
-.business-text {
-  margin-top: 2px;
-  height: 100vh;
+.business-container {
+  display: flex;
   background-color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10%;
 }
 
-.business-list {
-  text-align: center;
-  list-style: circle;
-  display: block;
+.business-container div {
+  padding: 20px;
+}
+
+.business-info {
+  flex: 1;
 }
 
 .business-list li {
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.business-image {
+  flex: 1;
+  background-color: blue;
+  width: 100%;
+  height: 100%;
 }

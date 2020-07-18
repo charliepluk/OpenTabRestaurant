@@ -44,13 +44,60 @@
       </div>
 
       <div class="menu-container">
+        <!-- ADD FORM -->
+        <form class="menu-form" id="menuItemForm" onsubmit="submitPresenter()">
+          <div class="menu-form-container">
+            <h3>Add a new item to your menu</h3>
+            <div class="menu-form-input">
+              <label><b>Item Name</b></label>
+              <input
+                id="item-name-input"
+                type="text"
+                placeholder="Item Name"
+                name="Name"
+                required
+              />
+            </div>
+
+            <div class="menu-form-input">
+              <label><b>Cost</b></label>
+              <input
+                id="item-cost-input"
+                type="number"
+                placeholder="0.00"
+                name="Cost"
+                required
+              />
+            </div>
+
+            <div class="menu-form-input">
+              <label><b>Description</b></label>
+              <input
+                id="item-desc-input"
+                type="text"
+                placeholder="Item Description"
+                name="Description"
+                pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              />
+            </div>
+
+            <div class="menu-form-submit">
+              <button class="add-item-cancel" onclick="closeForm()">
+                Cancel
+              </button>
+              <button type="submit" class="add-item-submit">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
         <div class="menu-nav">
           <div>
             <h3>Manage Your Menu</h3>
           </div>
 
           <div class="menu-controls">
-            <button id="addMenuItem" class="btn" onclick="">
+            <button id="addMenuItem" class="btn" onclick="openForm()">
               Add Item
             </button>
           </div>
@@ -115,5 +162,6 @@
     </div>
 
     <script src="/public/js/slide-nav.js"></script>
+    <script src="/public/js/menu.js"></script>
   </body>
 </html>
