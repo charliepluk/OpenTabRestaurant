@@ -52,3 +52,11 @@ function closeForm() {
   //   }
   // }
 }
+
+function openEditForm() {
+  document.getElementById("editMenuItemForm").style.display = "flex";
+}
+
+function closeEditForm() {
+  document.getElementById("editMenuItemForm").style.display = "none";
+}
