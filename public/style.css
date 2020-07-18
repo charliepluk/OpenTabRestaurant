@@ -461,11 +461,11 @@ nav {
 .picture-container {
   margin-top: 80px;
   background: url(./images/Bar.jpg);
-  filter: blur(4px);
+  filter: blur(2px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 70vh;
   background-attachment: fixed;
 }
 
@@ -481,6 +481,7 @@ nav {
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 80%;
+  height: 220px;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
@@ -504,4 +505,20 @@ nav {
 
 .sign-up-button:hover {
   opacity: 1;
+}
+
+.business-text {
+  margin-top: 2px;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.business-list {
+  text-align: center;
+  list-style: circle;
+  display: block;
+}
+
+.business-list li {
+  margin: 10px 0;
 }
