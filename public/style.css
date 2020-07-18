@@ -385,16 +385,47 @@ nav {
   background-color: rgb(221, 221, 221);
 }
 
-.selected-nav {
-}
-
 /********************************************/
 /******************* MENU *******************/
 /********************************************/
 .menu-container {
   margin-top: 80px;
-  display: flex;
   flex: 1;
+  width: 100%;
+}
+
+.menu-nav {
+  padding: 20px 40px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#addMenuItem {
+  padding: 5px;
+  background-color: #ff9466;
+  color: #fefefe;
+  border: none;
+  box-shadow: 1px 1px 3px rgb(71, 71, 71);
+}
+
+.menu-items-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-section {
+  margin-bottom: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.section-title {
+  color: #ff9466;
+}
+
+.section-title h2 {
+  font-weight: 900;
 }
 
 /********************************************/
