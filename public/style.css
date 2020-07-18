@@ -609,6 +609,7 @@ nav {
 
 .business-container {
   display: flex;
+  flex-wrap: wrap;
   background-color: #f7f7f7;
   justify-content: center;
   align-items: center;
@@ -616,11 +617,20 @@ nav {
 }
 
 .business-container div {
-  padding: 20px;
+  padding: 20px 10px;
 }
 
 .business-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+}
+
+.business-info h2 {
+  align-self: flex-start;
 }
 
 .business-list li {
@@ -630,12 +640,16 @@ nav {
 
 .business-image-container {
   flex: 1;
-  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .business-image {
   width: 350px;
   height: 350px;
+  min-width: 350px;
+  min-height: 350px;
   border-radius: 100%;
   background: url(/public/images/guysDrinking.jpg);
   background-repeat: no-repeat;
