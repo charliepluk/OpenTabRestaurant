@@ -354,6 +354,8 @@ nav {
 }
 
 .side-nav {
+  position: fixed;
+  height: 100%;
   margin-top: 80px;
   display: flex;
   flex-direction: column;
@@ -389,17 +391,18 @@ nav {
   margin-top: 80px;
   flex: 1;
   width: 100%;
+  margin-left: 300px;
 }
 
 .menu-nav {
-  padding: 20px 40px 20px 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #addMenuItem {
-  padding: 5px;
+  padding: 4px;
   background-color: #ff9466;
   color: #fefefe;
   border: none;
@@ -424,7 +427,7 @@ nav {
 .items-section {
   margin-bottom: 20px;
   width: 80%;
-  max-width: 800px;
+  max-width: 1000px;
   min-width: 400px;
   padding: 0px 20px;
 }
@@ -446,7 +449,7 @@ nav {
   border-radius: 5px;
   background-color: #ededed;
   margin-top: 10px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .menu-item:hover {
@@ -472,7 +475,6 @@ nav {
   background-color: #fefefe;
   padding: 30px 40px;
   margin-right: 20%;
-  margin-bottom: 20%;
   width: 500px;
   box-shadow: 0 5px 15px rgba(20, 20, 20, 0.788);
 }
@@ -528,8 +530,73 @@ nav {
 /********************************************/
 .orders-container {
   margin-top: 80px;
-  display: flex;
+  width: 100%;
   flex: 1;
+  margin-left: 300px;
+}
+
+.order-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-item {
+  border-radius: 5px;
+  background-color: #ededed;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.customer-name {
+  border-bottom: 0.5px solid rgb(221, 221, 221);
+  margin-bottom: 5px;
+}
+
+.ordered-items {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.ordered-items-list {
+  margin-left: 5px;
+}
+
+.order-total h4 {
+  margin-left: 5px;
+}
+
+.order-note {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.order-note p {
+  margin-left: 5px;
+}
+
+.control-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #ff9466;
+  background: linear-gradient(to right, #ff9466 50%, #fafafa 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+.control-order:hover {
+  background-position: left bottom;
+  color: #fefefe;
+  cursor: pointer;
 }
 
 /********************************************/
@@ -537,8 +604,37 @@ nav {
 /********************************************/
 .invoice-container {
   margin-top: 80px;
-  display: flex;
+  width: 100%;
   flex: 1;
+  margin-left: 300px;
+}
+
+.invoice-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invoice-items-section {
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 400px;
+  padding: 0px 20px;
+}
+
+.invoice-item {
+  border-radius: 5px;
+  background-color: #ededed;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.invoice-item:hover {
+  background-color: #ff9466;
+  color: #fefefe;
+  cursor: pointer;
 }
 
 /********************************************/
@@ -546,8 +642,51 @@ nav {
 /********************************************/
 .account-container {
   margin-top: 80px;
-  display: flex;
+  width: 100%;
   flex: 1;
+  margin-left: 300px;
+}
+
+.account-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-info-section {
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 400px;
+  padding: 0px 20px;
+}
+
+.restaurant-info {
+  border-radius: 5px;
+  background-color: #ededed;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.restaurant-name {
+  margin-bottom: 10px;
+  border-bottom: 0.5px solid rgb(221, 221, 221);
+}
+.restaurant-email {
+  margin-left: 5px;
+}
+
+.restaurant-phone {
+  margin-left: 5px;
+}
+
+.restaurant-location {
+  margin-left: 5px;
+}
+
+.restaurant-desc {
+  margin-left: 5px;
 }
 
 /********************************************/
