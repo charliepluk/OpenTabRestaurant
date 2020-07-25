@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/charliepluk/OpenTabRestaurant#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
     "node": "^14.5.0",
     "nodemon": "^2.0.4"
   }
