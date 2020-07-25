@@ -1,37 +1,24 @@
 const express = require("express");
-const app = express();
+const mysqlConnection = require("./databaseConnection");
 const path = require("path");
 
-// Set up file path
-app.use("/public", express.static("public"));
+const app = express();
 
-// Page Routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
-});
+// Set up static files
+const publicDirectory = path.join(__dirname, "./public");
+app.use(express.static(publicDirectory));
 
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/login.html"));
-});
+// Parse URL Encoded bodies
+app.use(express.urlencoded({ extended: false }));
 
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/register.html"));
-});
+// Parse JSON bodies
+app.use(express.json());
 
-app.get("/menu", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/menu.html"));
-});
+// Set Node View Engine to Handlebars
+app.set("view engine", "hbs");
 
-app.get("/orders", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/orders.html"));
-});
-
-app.get("/invoice", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/invoice.html"));
-});
-
-app.get("/account", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/pages/account.html"));
-});
+// Define Routes
+app.use("/", require("./routes/pages"));
+app.use("/auth", require("./routes/auth"));
 
 app.listen(8080);

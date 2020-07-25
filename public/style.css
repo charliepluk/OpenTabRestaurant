@@ -384,6 +384,10 @@ nav {
   background-color: rgb(221, 221, 221);
 }
 
+.nav-sign-out {
+  justify-self: flex-end;
+}
+
 /********************************************/
 /******************* MENU *******************/
 /********************************************/
@@ -634,6 +638,55 @@ nav {
 .invoice-item:hover {
   background-color: #ff9466;
   color: #fefefe;
+  cursor: pointer;
+}
+
+/********************************************/
+/************** INVOICE POPUP ***************/
+/********************************************/
+.invoice-popup-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.6);
+}
+
+.invoice-popup {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  padding: 30px 40px;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  height: 400px;
+  width: 500px;
+  box-shadow: 0 5px 15px rgba(20, 20, 20, 0.788);
+}
+
+.invoice-popup-controls {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.invoice-popup-controls button {
+  margin-top: 25px;
+  margin-left: 10px;
+  padding: 6px;
+  width: 80px;
+  color: #fefefe;
+  background-color: #ff9466;
+  box-shadow: 0 2px 8px rgba(192, 192, 192, 0.788);
+  border: none;
+  border-radius: 2px;
+}
+
+.invoice-popup-controls button:hover {
+  background-color: #ff8856;
   cursor: pointer;
 }
 

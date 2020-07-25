@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenTab - Invoice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <nav id="manageNav">
+    <div class="manageLogo">
+      <h1>OpenTab</h1>
+    </div>
+  </nav>
+
+  <div class="manage-container">
+    <div class="side-nav">
+      <a href="/menu">
+        <div class="side-nav-item">
+          Menu
+        </div>
+      </a>
+      <a href="/orders">
+        <div class="side-nav-item">
+          Orders
+        </div>
+      </a>
+      <a>
+        <div class="side-nav-item" style="background-color: rgb(221, 221, 221);">
+          Invoice
+        </div>
+      </a>
+      <a href="/account">
+        <div class="side-nav-item">
+          Account
+        </div>
+      </a>
+      <a href="/">
+        <div class="side-nav-item">
+          Sign Out
+        </div>
+      </a>
+    </div>
+
+    <div class="invoice-container">
+      <div class="invoice-popup-container" id="invoicePopup">
+        <div class="invoice-popup">
+          <h2>Order#1234153</h2>
+          <h5>Customer: Cam</h5>
+          <h5>Ordered On: <span>07/27/2020 10:00 PM</span></h5>
+
+          <h3>Ordered Items:</h3>
+          <p>3x Budlight <span>$3.00</span></p>
+          <p>2x Angry Orchards <span>$3.00</span></p>
+          <h4>Total: <span>$12.00</span></h4>
+
+          <div class="invoice-popup-controls">
+            <button onclick="closePopup()">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-nav">
+        <h3>View Invoice</h3>
+      </div>
+
+      <div class="invoice-items-container">
+        <div class="invoice-items-section">
+          <div class="section-title">
+            <h2>Order History</h2>
+          </div>
+          <div class="items-list">
+            <div class="invoice-item" onclick="openPopup()">
+              <div class="invoice-item-order-id">
+                <h3>Order#1234153</h3>
+              </div>
+              <div class="invoice-item-total">
+                <h5>Total: $10.89</h4>
+              </div>
+              <div class="invoice-item-date">
+                <h5>Date: 02-05-2020</h5>
+              </div>
+            </div>
+
+            <div class="invoice-item" onclick="openPopup()">
+              <div class="invoice-item-order-id">
+                <h3>Order#1234153</h3>
+              </div>
+              <div class="invoice-item-total">
+                <h5>Total: $10.89</h4>
+              </div>
+              <div class="invoice-item-date">
+                <h5>Date: 02-05-2020</h5>
+              </div>
+            </div>
+
+            <div class="invoice-item" onclick="openPopup()">
+              <div class="invoice-item-order-id">
+                <h3>Order#1234153</h3>
+              </div>
+              <div class="invoice-item-total">
+                <h5>Total: $10.89</h4>
+              </div>
+              <div class="invoice-item-date">
+                <h5>Date: 02-05-2020</h5>
+              </div>
+            </div>
+
+            <div class="invoice-item" onclick="openPopup()">
+              <div class="invoice-item-order-id">
+                <h3>Order#1234153</h3>
+              </div>
+              <div class="invoice-item-total">
+                <h5>Total: $10.89</h4>
+              </div>
+              <div class="invoice-item-date">
+                <h5>Date: 02-05-2020</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/slide-nav.js"></script>
+  <script src="/js/invoice.js"></script>
+</body>
+
+</html>
