@@ -11,8 +11,6 @@ router.get("/register", (req, res) => {
 
 // Register Process
 router.post("/register", (req, res) => {
-  console.log(req.body);
-
   const {
     firstName,
     lastName,
@@ -94,7 +92,6 @@ router.get("/login", (req, res) => {
 
 // Login Process
 router.post("/login", (req, res, next) => {
-  console.log(req.body);
   console.log("Authenticating");
   passport.authenticate("local", {
     successRedirect: "/menu",
@@ -107,7 +104,7 @@ router.post("/login", (req, res, next) => {
 router.get("/logout", (req, res) => {
   req.logout();
   console.log("Logged Out.");
-  res.redirect("/login");
+  res.redirect("/users/login");
 });
 
 module.exports = router;

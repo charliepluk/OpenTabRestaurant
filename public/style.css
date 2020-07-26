@@ -192,7 +192,8 @@ nav {
   margin-bottom: 20px;
 }
 
-.login-input-title-container h1 {
+.login-input-title-container a {
+  text-decoration: none;
   color: #ff9466;
 }
 
@@ -746,36 +747,43 @@ nav {
 /****************** Homepage ****************/
 /********************************************/
 .picture-container {
-  margin-top: 80px;
-  height: 70vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 0.5px solid black;
 }
 
 .picture {
   height: 100%;
   width: 100%;
-  background: url(./images/Bar.jpg);
-  filter: blur(2px);
+  background: url(/images/Bar.jpg);
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-.text {
+.text-container {
   position: absolute;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+}
+
+.text {
+  position: absolute;
   color: white;
   font-weight: bold;
-  border: 3px solid #f1f1f1;
   width: 80%;
-  max-width: 600px;
+  max-width: 700px;
   height: auto;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -796,6 +804,8 @@ nav {
 }
 
 .sign-up-button:hover {
+  color: #ffffff;
+  background-color: #ff9466;
   opacity: 1;
 }
 
@@ -843,7 +853,7 @@ nav {
   min-width: 350px;
   min-height: 350px;
   border-radius: 100%;
-  background: url(/public/images/guysDrinking.jpg);
+  background: url(/images/guysDrinking.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
