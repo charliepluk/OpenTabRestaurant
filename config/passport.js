@@ -10,18 +10,19 @@ module.exports = function (passport) {
 
   // Used to deserialize user
   passport.deserializeUser(function (user, done) {
-    db.query("SELECT * FROM users WHERE userId = ?", [user.userId], function (
-      err,
-      rows
-    ) {
-      if (err) {
-        console.log(err);
-      } else if (!rows.length) {
-        console.log("No query found");
-      } else {
-        done(err, rows[0]);
+    db.query(
+      "SELECT * FROM restaurants WHERE restID = ?",
+      [user.restID],
+      function (err, rows) {
+        if (err) {
+          console.log(err);
+        } else if (!rows.length) {
+          console.log("No query found");
+        } else {
+          done(err, rows[0]);
+        }
       }
-    });
+    );
   });
 
   passport.use(
@@ -29,14 +30,14 @@ module.exports = function (passport) {
     new LocalStrategy(
       {
         usernameField: "email",
-        passwordField: "password",
+        passwordField: "restPassword",
         passReqToCallback: true,
       },
-      function (req, email, password, done) {
+      function (req, email, restPassword, done) {
         console.log("Querying DB");
         // find user with matching email
         db.query(
-          "SELECT * FROM users WHERE email = ?",
+          "SELECT * FROM restaurants WHERE email = ?",
           [email],
           (err, rows) => {
             if (err) {
@@ -53,7 +54,10 @@ module.exports = function (passport) {
             }
 
             // Compare password
-            bcrypt.compare(password, rows[0].password, function (err, isMatch) {
+            bcrypt.compare(restPassword, rows[0].restPassword, function (
+              err,
+              isMatch
+            ) {
               if (err) throw err;
               if (isMatch) {
                 console.log("Successful Login");

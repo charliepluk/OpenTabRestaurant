@@ -46,6 +46,10 @@ app.get("*", function (req, res, next) {
 // Define Routes
 app.use("/", require("./routes/pages"));
 app.use("/users", require("./routes/user"));
+app.use("/menu", require("./routes/menu"));
+app.use("/invoice", require("./routes/invoice"));
+app.use("/customer", require("./routes/customer"));
+app.use("/account", require("./routes/account"));
 
 app.listen(8080, () => {
   console.log("Listening on Port 8080.");

@@ -49,31 +49,31 @@
       <!------------------------>
       <!------- ADD FORM ------->
       <!------------------------>
-      <form class="menu-form" id="menuItemForm" onsubmit="">
+      <form action="/menu/insert" method="POST" class="menu-form" id="menuItemForm">
         <div class="menu-form-container">
           <h3>Add a new item to your menu</h3>
           <div class="menu-form-input">
             <label><b>Item Name</b></label>
-            <input id="item-name-input" type="text" placeholder="Item Name" name="Name" required />
+            <input id="item-name-input" type="text" placeholder="Item Name" name="itemName" required />
           </div>
 
           <div class="menu-form-input">
             <label><b>Cost</b></label>
-            <input id="item-cost-input" type="number" placeholder="0.00" name="Cost" required />
+            <input id="item-cost-input" type="number" placeholder="0.00" name="itemPrice" required />
           </div>
 
           <div class="menu-form-input">
             <label><b>Description</b></label>
-            <input id="item-desc-input" type="text" placeholder="Item Description" name="Description"
+            <input id="item-desc-input" type="text" placeholder="Item Description" name="itemDescription"
               pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" />
           </div>
 
           <div class="menu-form-input">
             <label><b>Type</b></label>
-            <select id="itemTypeSelect" name="Item Type" required>
+            <select id="itemTypeSelect" name="itemType" required>
               <option value="" selected disabled hidden>Choose a presenter</option>
-              <option value="1">Drink</option>
-              <option value="2">Food</option>
+              <option value="Drink">Drink</option>
+              <option value="Food">Food</option>
             </select>
           </div>
 
@@ -91,22 +91,22 @@
       <!------------------------>
       <!------- EDIT FORM ------>
       <!------------------------>
-      <form class="menu-form" id="editMenuItemForm" onsubmit="">
+      <form action="/menu/update" method="POST" class="menu-form" id="editMenuItemForm">
         <div class="menu-form-container">
           <h3>Edit Menu Item</h3>
           <div class="menu-form-input">
             <label><b>Item Name</b></label>
-            <input id="item-name-input" type="text" placeholder="Item Name" name="Name" required />
+            <input id="item-name-input" type="text" placeholder="Item Name" name="itemName" required />
           </div>
 
           <div class="menu-form-input">
             <label><b>Cost</b></label>
-            <input id="item-cost-input" type="number" placeholder="0.00" name="Cost" required />
+            <input id="item-cost-input" type="number" placeholder="0.00" name="itemPrice" required />
           </div>
 
           <div class="menu-form-input">
             <label><b>Description</b></label>
-            <input id="item-desc-input" type="text" placeholder="Item Description" name="Description"
+            <input id="item-desc-input" type="text" placeholder="Item Description" name="itemDesc"
               pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" />
           </div>
 
@@ -144,38 +144,7 @@
           <div class="section-title">
             <h2>Drinks</h2>
           </div>
-
-          <div class="items-list">
-            <div class="menu-item" onclick="openEditForm()">
-              <div class="item-name">
-                <h3>Budlight</h3>
-              </div>
-              <div class="item-desc">
-                <h5>$3.00</h5>
-                <p>12oz Bottle</p>
-              </div>
-            </div>
-
-            <div class="menu-item" onclick="openEditForm()">
-              <div class="item-name">
-                <h3>Angry Orchard's Cider</h3>
-              </div>
-              <div class="item-desc">
-                <h5>$4.00</h5>
-                <p>12oz Bottle</p>
-              </div>
-            </div>
-
-            <div class="menu-item" onclick="openEditForm()">
-              <div class="item-name">
-                <h3>Lime Margarita</h3>
-              </div>
-              <div class="item-desc">
-                <h5>$8.00</h5>
-                <p>Tequila, Fresh Limeade, Salt</p>
-              </div>
-            </div>
-          </div>
+          <div id="drinkList" class="items-list"></div>
         </div>
 
         <div class="items-section">
@@ -183,7 +152,7 @@
             <h2>Food</h2>
           </div>
 
-          <div class="items-list">
+          <div id="foodList" class="items-list">
             <div class="menu-item" onclick="openEditForm()">
               <div class="item-name">
                 <h3>Fries</h3>
@@ -199,8 +168,10 @@
     </div>
   </div>
 
+  <script type="text/javascript" src="/publicHeader.js"></script>
+  <script type="text/javascript" src="/js/menu.js"></script>
+  <script type="text/javascript" src="/loaders/menuLoader.js"></script>
   <script src="/js/slide-nav.js"></script>
-  <script src="/js/menu.js"></script>
 </body>
 
 </html>

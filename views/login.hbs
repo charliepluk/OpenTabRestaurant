@@ -14,7 +14,7 @@
     <div class="login-info-container"></div>
     <div class="login-input-container">
       <div class="login-input-title-container">
-        <h1>OpenTab</h1>
+        <h1><a href="/">OpenTab</a></h1>
       </div>
       <form action="/users/login" method="POST" class="login-form" id="loginForm">
         <div class="login-input">
@@ -22,7 +22,7 @@
           <p style="color: red;">{{message}}</p>
           {{/if}}
           <input id="email" type="email" placeholder="example@email.com" name="email" required />
-          <input id="password" type="password" placeholder="Password" name="password" required />
+          <input id="password" type="password" placeholder="Password" name="restPassword" required />
           <p><a href="#">Forgot Password?</a></p>
           <p><a href="/users/register">Don't have an account? Sign Up!</a></p>
         </div>

@@ -11,18 +11,16 @@ router.get("/register", (req, res) => {
 
 // Register Process
 router.post("/register", (req, res) => {
-  console.log(req.body);
-
   const {
     firstName,
     lastName,
-    restaurantName,
+    restName,
     email,
     phone,
     address,
     zipcode,
     state,
-    password,
+    restPassword,
     passwordConfirm,
   } = req.body;
 
@@ -41,7 +39,7 @@ router.post("/register", (req, res) => {
   }
 
   db.query(
-    "SELECT email FROM users WHERE email = ?",
+    "SELECT email FROM restaurants WHERE email = ?",
     [email],
     async (error, results) => {
       if (error) {
@@ -51,28 +49,34 @@ router.post("/register", (req, res) => {
         return res.render("register", {
           message: "That email is already in use",
         });
-      } else if (password !== passwordConfirm) {
+      } else if (restPassword !== passwordConfirm) {
         return res.render("register", {
           message: "Passwords do not match",
         });
       }
 
+      // Default Open and Close Times
+      var openTime = "18:00:00";
+      var closeTime = "01:00:00";
+
       // Hash the password before inserting to DB
-      let hashedPassword = await bcrypt.hash(password, 8);
+      let hashedPassword = await bcrypt.hash(restPassword, 8);
       console.log(hashedPassword);
 
       db.query(
-        "INSERT INTO users SET ?",
+        "INSERT INTO restaurants SET ?",
         {
           firstName: firstName,
           lastName: lastName,
-          restaurantName: restaurantName,
+          restName: restName,
           email: email,
           phone: phone,
           address: address,
           zipcode: zipcode,
           state: state,
-          password: hashedPassword,
+          openTime: openTime,
+          closeTime: closeTime,
+          restPassword: hashedPassword,
         },
         (error, results) => {
           if (error) {
@@ -94,7 +98,6 @@ router.get("/login", (req, res) => {
 
 // Login Process
 router.post("/login", (req, res, next) => {
-  console.log(req.body);
   console.log("Authenticating");
   passport.authenticate("local", {
     successRedirect: "/menu",
@@ -107,7 +110,7 @@ router.post("/login", (req, res, next) => {
 router.get("/logout", (req, res) => {
   req.logout();
   console.log("Logged Out.");
-  res.redirect("/login");
+  res.redirect("/users/login");
 });
 
 module.exports = router;
