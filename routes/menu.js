@@ -53,7 +53,7 @@ router.post("/delete", function (req, res) {
       res.redirect("/menu");
     } else {
       console.log("Deleted Item");
-      res.redirect("/menu");
+      res.status(200).redirect("/menu");
     }
   });
 });

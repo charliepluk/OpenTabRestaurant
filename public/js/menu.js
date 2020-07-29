@@ -17,7 +17,7 @@ function openEditForm(itemID, itemName, itemPrice, itemDescription) {
       itemID: itemID,
     };
 
-    sendPostRequest(jsonObj, "menu/delete");
+    sendPostRequest(jsonObj, "/menu/delete");
   };
   document.getElementById("editMenuItemForm").style.display = "flex";
 }
