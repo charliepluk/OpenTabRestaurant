@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 
 // INSERT NEW MENU ITEM
 router.post("/insert", (req, res) => {
-  console.log(req.body);
   const { itemName, itemPrice, itemDescription, itemType } = req.body;
   const restID = req.user.restID;
 
@@ -61,7 +60,6 @@ router.post("/delete", function (req, res) {
 
 // UPDATE MENU ITEM
 router.post("/update", function (req, res) {
-  console.log(req.body);
   var { itemID, itemName, itemPrice, itemDescription } = req.body;
   const fixedItemPrice = parseFloat(itemPrice).toFixed(2);
 

@@ -24,7 +24,6 @@ router.get("/query", function (req, res) {
     WHERE restID = "${restID}" `,
     function (err, result, fields) {
       String(result);
-      console.log(result);
       res.send(result);
     }
   );

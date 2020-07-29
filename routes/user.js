@@ -83,7 +83,6 @@ router.post("/register", (req, res) => {
           if (error) {
             console.log(error);
           } else {
-            console.log(results);
             res.redirect("/users/login");
           }
         }

@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 
 // UPDATE ORDER
 router.post("/update", function (req, res) {
-  console.log(req.body);
   const { orderID, orderStatus } = req.body;
 
   db.query(
@@ -44,7 +43,6 @@ router.get("/query", function (req, res) {
     WHERE restID = "${restID}" `,
     function (err, result, fields) {
       String(result);
-      console.log(result);
       res.send(result);
     }
   );
