@@ -51,7 +51,10 @@
       <!------------------------>
       <form action="/menu/insert" method="POST" class="menu-form" id="menuItemForm">
         <div class="menu-form-container">
-          <h3>Add a new item to your menu</h3>
+          <div class="menu-form-header">
+            <h3>Add a new item to your menu</h3>
+            <p onclick="closeForm()">X</p>
+          </div>
           <div class="menu-form-input">
             <label><b>Item Name</b></label>
             <input id="item-name-input" type="text" placeholder="Item Name" name="itemName" required />
@@ -64,23 +67,19 @@
 
           <div class="menu-form-input">
             <label><b>Description</b></label>
-            <input id="item-desc-input" type="text" placeholder="Item Description" name="itemDescription"
-              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" />
+            <input id="item-desc-input" type="text" placeholder="Item Description" name="itemDescription" />
           </div>
 
           <div class="menu-form-input">
             <label><b>Type</b></label>
             <select id="itemTypeSelect" name="itemType" required>
-              <option value="" selected disabled hidden>Choose a presenter</option>
+              <option value="" selected disabled hidden>Item Type</option>
               <option value="Drink">Drink</option>
               <option value="Food">Food</option>
             </select>
           </div>
 
           <div class="menu-form-submit">
-            <button class="add-item-cancel" onclick="closeForm()">
-              Cancel
-            </button>
             <button type="submit" class="add-item-submit">
               Save
             </button>
@@ -93,7 +92,10 @@
       <!------------------------>
       <form action="/menu/update" method="POST" class="menu-form" id="editMenuItemForm">
         <div class="menu-form-container">
-          <h3>Edit Menu Item</h3>
+          <div class="menu-form-header">
+            <h3>Edit Menu Item</h3>
+            <p onclick="closeEditForm()">X</p>
+          </div>
           <div>
             <input id="editItemID" name="itemID" style="display:none !important" required />
           </div>
@@ -109,15 +111,14 @@
 
           <div class="menu-form-input">
             <label><b>Description</b></label>
-            <input id="editItemDesc" type="text" placeholder="Item Description" name="itemDescription"
-              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" />
+            <input id="editItemDesc" type="text" placeholder="Item Description" name="itemDescription" />
           </div>
 
           <div class="menu-form-submit">
-            <button class="add-item-cancel" onclick="closeEditForm()">
-              Cancel
+            <button id="deleteItem">
+              Delete
             </button>
-            <button type="submit" class="add-item-submit">
+            <button type="submit" class="edit-item-submit">
               Update
             </button>
           </div>

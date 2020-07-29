@@ -24,10 +24,8 @@ router.post("/update", function (req, res) {
     (err, result) => {
       if (err) {
         console.log("Unable to Update Order Status!");
-        res.redirect("/menu");
       } else {
         console.log("Updated Orders!");
-        res.redirect("/menu");
       }
     }
   );
@@ -39,7 +37,7 @@ router.get("/query", function (req, res) {
   const restID = req.user.restID;
 
   db.query(
-    `SELECT orders.orderID, orders.customerID, orders.orderNotes, orders.orderDateTime, orders.orderStatus, orders.orderItems, customers.customerFirstname
+    `SELECT orders.orderID, orders.customerID, orders.orderNotes, orders.orderDateTime, orders.orderStatus, orders.orderItems, orders.totalOrderPrice, customers.customerFirstname
     FROM orders 
     INNER JOIN customers 
     ON orders.customerID = customers.customerID

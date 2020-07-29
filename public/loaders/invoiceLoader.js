@@ -85,15 +85,20 @@ function createItem(
   var invoiceDateDiv = document.createElement("div");
   invoiceDateDiv.classList.add("invoice-item-date");
 
-  var dateText = document.createTextNode("Date: " + orderDateTime);
+  var dateText = document.createTextNode("Date: " + getDateText(orderDateTime));
   var invoiceDateText = document.createElement("h5");
   invoiceDateText.appendChild(dateText);
   invoiceDateDiv.appendChild(invoiceDateText);
+
+  var timeText = document.createTextNode("Time: " + getTimeText(orderDateTime));
+  var invoiceTimeText = document.createElement("h5");
+  invoiceTimeText.appendChild(timeText);
+  invoiceDateDiv.appendChild(invoiceTimeText);
 
   // Append all divs to invoice item divs
   invoiceItemDiv.appendChild(orderIdDiv);
   invoiceItemDiv.appendChild(invoiceTotalDiv);
   invoiceItemDiv.appendChild(invoiceDateDiv);
 
-  document.getElementById("invoiceList").appendChild(invoiceItemDiv);
+  document.getElementById("invoiceList").prepend(invoiceItemDiv);
 }

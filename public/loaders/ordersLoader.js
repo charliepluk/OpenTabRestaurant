@@ -17,6 +17,7 @@ function loadOrders() {
         var orderDateTime = result[i].orderDateTime;
         var orderStatus = result[i].orderStatus;
         var orderItems = result[i].orderItems;
+        var totalOrderPrice = result[i].totalOrderPrice;
         var customerFirstname = result[i].customerFirstname;
 
         if (orderStatus !== "completed") {
@@ -27,6 +28,7 @@ function loadOrders() {
             orderDateTime,
             orderStatus,
             orderItems,
+            totalOrderPrice,
             customerFirstname
           );
         }
@@ -65,6 +67,7 @@ function createItem(
   orderDateTime,
   orderStatus,
   orderItems,
+  totalOrderPrice,
   customerFirstname
 ) {
   // Create DIV to hold new menu item
@@ -114,23 +117,25 @@ function createItem(
   // Create order total
   var totalDiv = document.createElement("div");
   totalDiv.classList.add("order-total");
-  var totalTextNode = document.createTextNode("Total: 20");
+  var totalTextNode = document.createTextNode(
+    "Total: $" + totalOrderPrice.toFixed(2)
+  );
   var totalText = document.createElement("h4");
   totalText.appendChild(totalTextNode);
   totalDiv.appendChild(totalText);
   orderedItemsDiv.appendChild(totalDiv);
 
-  // Create order note
-  var noteDiv = document.createElement("div");
-  noteDiv.classList.add("order-note");
-  var noteTitleNode = document.createTextNode("Note:");
-  var noteTitleText = document.createElement("h4");
-  noteTitleText.appendChild(noteTitleNode);
-  noteDiv.appendChild(noteTitleText);
-  var noteNode = document.createTextNode(orderNotes);
-  var noteText = document.createElement("p");
-  noteText.appendChild(noteNode);
-  noteDiv.appendChild(noteText);
+  // // Create order note
+  // var noteDiv = document.createElement("div");
+  // noteDiv.classList.add("order-note");
+  // var noteTitleNode = document.createTextNode("Note:");
+  // var noteTitleText = document.createElement("h4");
+  // noteTitleText.appendChild(noteTitleNode);
+  // noteDiv.appendChild(noteTitleText);
+  // var noteNode = document.createTextNode(orderNotes);
+  // var noteText = document.createElement("p");
+  // noteText.appendChild(noteNode);
+  // noteDiv.appendChild(noteText);
 
   // Create control button
   var controlDiv = document.createElement("div");
@@ -155,7 +160,7 @@ function createItem(
   orderItemDiv.appendChild(orderIdDiv);
   orderItemDiv.appendChild(customerNameDiv);
   orderItemDiv.appendChild(orderedItemsDiv);
-  orderItemDiv.appendChild(noteDiv);
+  //orderItemDiv.appendChild(noteDiv);
   orderItemDiv.appendChild(controlDiv);
 
   if (orderStatus === "pending") {

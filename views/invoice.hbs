@@ -48,14 +48,19 @@
     <div class="invoice-container">
       <div class="invoice-popup-container" id="invoicePopup">
         <div class="invoice-popup">
-          <h2 id="popupOrderID"></h2>
-          <h5 id="popupOrderCustomer"></h5>
-          <h5>Ordered On: <span id="popupOrderDateTime"></span></h5>
+          <div class="invoice-pop-header">
+            <h2 id="popupOrderID"></h2>
+            <h5 id="popupOrderCustomer"></h5>
+            <h5>Ordered On: <span id="popupOrderDateTime"></span></h5>
+          </div>
 
           <div class="popupOrderedItems">
             <h3>Ordered Items:</h3>
             <div id="popupOrderedItemsList">
             </div>
+          </div>
+
+          <div class="popup-total">
             <h4>Total: <span id="popupOrderTotal">$12.00</span></h4>
           </div>
 

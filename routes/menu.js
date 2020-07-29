@@ -45,17 +45,29 @@ router.post("/insert", (req, res) => {
 
 // DELETE MENU ITEM
 router.post("/delete", function (req, res) {
+  console.log("Deleting Menu Item");
   const { itemID } = req.body;
 
-  db.query(`DELETE FROM items WHERE itemID = "${itemID}"`);
+  db.query(`DELETE FROM items WHERE itemID = "${itemID}"`, (err, result) => {
+    if (err) {
+      console.log("Unable to Delete Item");
+      res.redirect("/menu");
+    } else {
+      console.log("Deleted Item");
+      res.redirect("/menu");
+    }
+  });
 });
 
 // UPDATE MENU ITEM
 router.post("/update", function (req, res) {
   console.log(req.body);
-  const { itemID, itemName, itemPrice, itemDescription } = req.body;
-
+  var { itemID, itemName, itemPrice, itemDescription } = req.body;
   const fixedItemPrice = parseFloat(itemPrice).toFixed(2);
+
+  if (itemDescription === "") {
+    itemDescription = null;
+  }
 
   db.query(
     `UPDATE items SET ? WHERE itemID="${itemID}"`,

@@ -46,6 +46,35 @@
     </div>
 
     <div class="account-container">
+      <form action="/account/update" method="POST" class="menu-form" id="editAccountForm">
+        <div class="menu-form-container">
+          <div class="menu-form-header">
+            <h3>Edit Account Info</h3>
+            <p onclick="closeAccountEdit()">X</p>
+          </div>
+          <div class="menu-form-input">
+            <label><b>Opening Time</b></label>
+            <input id="editOpenTime" type="time" placeholder="4 PM" name="openTime" required />
+          </div>
+
+          <div class="menu-form-input">
+            <label><b>Closing Time</b></label>
+            <input id="editCloseTime" type="time" placeholder="3 AM" name="closeTime" required />
+          </div>
+
+          <div class="menu-form-input">
+            <label><b>Description</b></label>
+            <input id="editAccountDesc" type="text" placeholder="Restaurant Description" name="description" />
+          </div>
+
+          <div class="menu-form-submit">
+            <button type="submit">
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
+
       <div class="menu-nav">
         <div>
           <h3>Account Details</h3>
@@ -58,9 +87,6 @@
             <h2>Restaurant Information</h2>
           </div>
           <div id="restaurantInfo" class="restaurant-info">
-            <div class="control-order">
-              <h3>EDIT DESCRIPTION</h3>
-            </div>
           </div>
         </div>
       </div>
@@ -68,6 +94,7 @@
   </div>
 
   <script type="text/javascript" src="/publicHeader.js"></script>
+  <script type="text/javascript" src="/js/account.js"></script>
   <script type="text/javascript" src="/loaders/accountLoader.js"></script>
   <script src="/js/slide-nav.js"></script>
 </body>
