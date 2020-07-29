@@ -18,6 +18,7 @@ function loadAccountInfo() {
         var email = result[i].email;
         var address = result[i].address;
         var state = result[i].state;
+        var city = result[i].city;
         var zipcode = result[i].zipcode;
         var description = result[i].description;
         var openTime = result[i].openTime;
@@ -31,6 +32,7 @@ function loadAccountInfo() {
           email,
           address,
           state,
+          city,
           zipcode,
           description,
           openTime,
@@ -52,6 +54,7 @@ function createItem(
   email,
   address,
   state,
+  city,
   zipcode,
   description,
   openTime,
@@ -103,7 +106,9 @@ function createItem(
   var locationTitleText = document.createElement("h4");
   var addressNode = document.createTextNode(address);
   var addressText = document.createElement("p");
-  var cityStateNode = document.createTextNode(state + " " + zipcode);
+  var cityStateNode = document.createTextNode(
+    city + ", " + state + " " + zipcode
+  );
   var cityStateText = document.createElement("p");
   locationTitleText.appendChild(locationTitleNode);
   addressText.appendChild(addressNode);

@@ -47,7 +47,6 @@ router.get("/query", function (req, res) {
     fields
   ) {
     String(result);
-    console.log(result);
     res.send(result);
   });
 });

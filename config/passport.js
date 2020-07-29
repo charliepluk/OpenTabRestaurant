@@ -34,20 +34,17 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       function (req, email, restPassword, done) {
-        console.log("Querying DB");
         // find user with matching email
         db.query(
           "SELECT * FROM restaurants WHERE email = ?",
           [email],
           (err, rows) => {
             if (err) {
-              console.log(err);
               return done(err);
             }
 
             // No User Found
             if (!rows.length) {
-              console.log("No User Found.");
               return done(null, false, {
                 message: "No User Found. Try Again.",
               });

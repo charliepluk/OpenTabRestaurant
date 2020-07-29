@@ -27,12 +27,13 @@ function loadMenuItems() {
 }
 
 function createItem(itemID, itemName, itemPrice, itemDescription, itemType) {
-  console.log("Creating Item");
   // Create DIV to hold new menu item
   var menuItemDiv = document.createElement("div");
   menuItemDiv.classList.add("menu-item");
   menuItemDiv.id = itemID;
-  menuItemDiv.onclick = openEditForm;
+  menuItemDiv.onclick = function () {
+    openEditForm(itemID, itemName, itemPrice, itemDescription);
+  };
 
   // Create item name div
   var itemNameDiv = document.createElement("div");
@@ -51,7 +52,7 @@ function createItem(itemID, itemName, itemPrice, itemDescription, itemType) {
   itemDescDiv.classList.add("item-desc");
 
   // Create item desc div text
-  var priceText = document.createTextNode(itemPrice);
+  var priceText = document.createTextNode("$" + itemPrice.toFixed(2));
   var itemPriceText = document.createElement("h5");
   itemPriceText.appendChild(priceText);
 
@@ -76,14 +77,4 @@ function createItem(itemID, itemName, itemPrice, itemDescription, itemType) {
   } else {
     document.getElementById("foodList").appendChild(menuItemDiv);
   }
-
-  // // Add Close on click
-  // var close = document.getElementsByClassName("close");
-  // for (var i = 0; i < close.length; i++) {
-  //   close[i].onclick = function () {
-  //     var optionsDiv = this.parentElement;
-  //     var presenterItemDiv = optionsDiv.parentElement;
-  //     deletePresenter(presenterItemDiv);
-  //   };
-  // }
 }
