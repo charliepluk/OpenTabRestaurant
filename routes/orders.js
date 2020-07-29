@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 
 // UPDATE ORDER
 router.post("/update", function (req, res) {
-  console.log(req.body);
   const { orderID, orderStatus } = req.body;
 
   db.query(
@@ -24,8 +23,10 @@ router.post("/update", function (req, res) {
     (err, result) => {
       if (err) {
         console.log("Unable to Update Order Status!");
+        res.redirect("/menu");
       } else {
         console.log("Updated Orders!");
+        res.redirect("/menu");
       }
     }
   );
@@ -44,7 +45,6 @@ router.get("/query", function (req, res) {
     WHERE restID = "${restID}" `,
     function (err, result, fields) {
       String(result);
-      console.log(result);
       res.send(result);
     }
   );

@@ -60,6 +60,15 @@ function createItem(
   openTime,
   closeTime
 ) {
+  // Create a div to hold owner name
+  var ownerNameDiv = document.createElement("div");
+  ownerNameDiv.classList.add("owner-name");
+
+  var ownerNameNode = document.createTextNode(firstName + " " + lastName);
+  var ownerNameText = document.createElement("h3");
+  ownerNameText.appendChild(ownerNameNode);
+  ownerNameDiv.appendChild(ownerNameText);
+
   // Create a div to hold restaurant name
   var restNameDiv = document.createElement("div");
   restNameDiv.classList.add("restaurant-name");
@@ -158,6 +167,7 @@ function createItem(
 
   // Append all divs to invoice item divs
   restInfoDiv = document.getElementById("restaurantInfo");
+  restInfoDiv.appendChild(ownerNameDiv);
   restInfoDiv.appendChild(restNameDiv);
   restInfoDiv.appendChild(restEmailDiv);
   restInfoDiv.appendChild(restPhoneDiv);

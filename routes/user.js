@@ -45,13 +45,16 @@ router.post("/register", (req, res) => {
     async (error, results) => {
       if (error) {
         console.log(error);
+        return res.render("register", {
+          message: "An error occurred while registering.",
+        });
       }
       if (results.length > 0) {
-        return res.render("register", {
+        return res.status(401).render("register", {
           message: "That email is already in use",
         });
       } else if (restPassword !== passwordConfirm) {
-        return res.render("register", {
+        return res.status(401).render("register", {
           message: "Passwords do not match",
         });
       }
@@ -82,8 +85,10 @@ router.post("/register", (req, res) => {
         (error, results) => {
           if (error) {
             console.log(error);
+            return res.status(401).render("register", {
+              message: "An error occurred while registering. Please try again.",
+            });
           } else {
-            console.log(results);
             res.redirect("/users/login");
           }
         }
