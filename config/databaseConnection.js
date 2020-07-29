@@ -8,6 +8,7 @@ var connection = mysql.createConnection({
   password: "",
   port: process.env.DATABASE_PORT,
   database: process.env.DATABASE,
+  timezone: "+00:00",
 });
 
 connection.connect(function (err) {

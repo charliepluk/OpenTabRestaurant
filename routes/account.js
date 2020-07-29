@@ -11,26 +11,25 @@ router.get("/", (req, res) => {
   }
 });
 
-// UPDATE MENU ITEM
+// UPDATE ACCOUNT INFO
 router.post("/update", function (req, res) {
-  console.log(req.body);
-  const { itemID, itemName, itemPrice, itemDescription, itemType } = req.body;
+  const restID = req.user.restID;
+  const { openTime, closeTime, description } = req.body;
 
   db.query(
-    `UPDATE items SET ? WHERE itemID="${itemID}"`,
+    `UPDATE restaurants SET ? WHERE restID="${restID}"`,
     {
-      itemName: itemName,
-      itemPrice: itemPrice,
-      itemDescription: itemDescription,
-      itemType: itemType,
+      openTime: openTime,
+      closeTime: closeTime,
+      description: description,
     },
     (err, result) => {
       if (err) {
         console.log("Unable to Update Item!");
-        res.render("menu");
+        res.render("account");
       } else {
         console.log("Updated Item!");
-        res.render("menu");
+        res.render("account");
       }
     }
   );

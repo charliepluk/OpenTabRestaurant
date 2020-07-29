@@ -56,12 +56,19 @@ function createItem(itemID, itemName, itemPrice, itemDescription, itemType) {
   var itemPriceText = document.createElement("h5");
   itemPriceText.appendChild(priceText);
 
-  var descText = document.createTextNode(itemDescription);
-  var itemDescText = document.createElement("p");
-  if (descText === null || descText === undefined || descText.length === 0) {
+  var descText = itemDescription;
+  if (
+    itemDescription === null ||
+    itemDescription === undefined ||
+    itemDescription.length === 0 ||
+    itemDescription === ""
+  ) {
     descText = "No Description";
   }
-  itemDescText.appendChild(descText);
+  var descNode = document.createTextNode(descText);
+  var itemDescText = document.createElement("p");
+
+  itemDescText.appendChild(descNode);
 
   // Append Item Desc Div Text
   itemDescDiv.appendChild(itemPriceText);

@@ -60,9 +60,6 @@ function createItem(
   openTime,
   closeTime
 ) {
-  // Create DIV to hold restaurant info item
-  var restInfoDiv = document.createElement("div");
-
   // Create a div to hold restaurant name
   var restNameDiv = document.createElement("div");
   restNameDiv.classList.add("restaurant-name");
@@ -117,7 +114,24 @@ function createItem(
   restLocationDiv.appendChild(addressText);
   restLocationDiv.appendChild(cityStateText);
 
-  // Div to hold restaurant phone
+  // Div to hold restaurant hours
+  var restHoursDiv = document.createElement("div");
+  restHoursDiv.classList.add("restaurant-hours");
+
+  var hoursTitleNode = document.createTextNode("Hours:");
+  var hoursTitleText = document.createElement("h4");
+  var hoursNode = document.createTextNode(
+    convertMilitaryToStandardTime(openTime) +
+      " - " +
+      convertMilitaryToStandardTime(closeTime)
+  );
+  var hoursText = document.createElement("p");
+  hoursTitleText.appendChild(hoursTitleNode);
+  hoursText.appendChild(hoursNode);
+  restHoursDiv.appendChild(hoursTitleText);
+  restHoursDiv.appendChild(hoursText);
+
+  // Div to hold restaurant description
   var restDescDiv = document.createElement("div");
   restDescDiv.classList.add("restaurant-desc");
 
@@ -130,12 +144,25 @@ function createItem(
   restDescDiv.appendChild(descTitleText);
   restDescDiv.appendChild(descText);
 
+  // Control Div
+  var controlDiv = document.createElement("div");
+  controlDiv.classList.add("control-order");
+  var editNode = document.createTextNode("EDIT ACCOUNT");
+  var editText = document.createElement("h3");
+  editText.appendChild(editNode);
+  controlDiv.appendChild(editText);
+
+  controlDiv.onclick = function () {
+    openAccountEdit(openTime, closeTime, description);
+  };
+
   // Append all divs to invoice item divs
+  restInfoDiv = document.getElementById("restaurantInfo");
   restInfoDiv.appendChild(restNameDiv);
   restInfoDiv.appendChild(restEmailDiv);
   restInfoDiv.appendChild(restPhoneDiv);
   restInfoDiv.appendChild(restLocationDiv);
+  restInfoDiv.appendChild(restHoursDiv);
   restInfoDiv.appendChild(restDescDiv);
-
-  document.getElementById("restaurantInfo").prepend(restInfoDiv);
+  restInfoDiv.appendChild(controlDiv);
 }

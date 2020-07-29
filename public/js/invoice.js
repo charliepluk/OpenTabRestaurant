@@ -8,7 +8,8 @@ function openPopup(
   document.getElementById("popupOrderID").innerHTML = "Order#" + orderID;
   document.getElementById("popupOrderCustomer").innerHTML =
     "Customer: " + customerFirstname;
-  document.getElementById("popupOrderDateTime").innerHTML = orderDateTime;
+  document.getElementById("popupOrderDateTime").innerHTML =
+    getDateText(orderDateTime) + ", " + getTimeText(orderDateTime);
   document.getElementById("popupOrderTotal").innerHTML =
     "$" + totalOrderPrice.toFixed(2);
 

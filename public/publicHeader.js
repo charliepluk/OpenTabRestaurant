@@ -25,3 +25,26 @@ function getCustomerInfo(customerID) {
   xhr.open("GET", handler);
   xhr.send();
 }
+
+function convertMilitaryToStandardTime(militaryTime) {
+  militaryTime = militaryTime.split(":");
+  if (militaryTime[0] > 12) {
+    return militaryTime[0] - 12 + ":" + militaryTime[1] + " PM";
+  } else if (militaryTime[0] == 12) {
+    return militaryTime[0] + ":" + militaryTime[1] + " PM";
+  } else if (militaryTime[0] == 0) {
+    return 12 + ":" + militaryTime[1] + " AM";
+  } else {
+    return parseInt(militaryTime[0]) + ":" + militaryTime[1] + " AM";
+  }
+}
+
+function getDateText(dateTimeText) {
+  dateText = dateTimeText.split("T0")[0].split("-");
+  return dateText[1] + "-" + dateText[2] + "-" + dateText[0];
+}
+
+function getTimeText(dateTimeText) {
+  unformatedTimeText = dateTimeText.split("T0")[1].split(".")[0];
+  return convertMilitaryToStandardTime(unformatedTimeText);
+}

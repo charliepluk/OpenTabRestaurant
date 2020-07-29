@@ -11,6 +11,14 @@ function openEditForm(itemID, itemName, itemPrice, itemDescription) {
   document.getElementById("editItemName").value = itemName;
   document.getElementById("editItemPrice").value = itemPrice;
   document.getElementById("editItemDesc").value = itemDescription;
+
+  document.getElementById("deleteItem").onclick = function () {
+    var jsonObj = {
+      itemID: itemID,
+    };
+
+    sendPostRequest(jsonObj, "menu/delete");
+  };
   document.getElementById("editMenuItemForm").style.display = "flex";
 }
 
