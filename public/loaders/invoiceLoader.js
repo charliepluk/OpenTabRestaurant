@@ -15,9 +15,22 @@ function loadInvoiceItems() {
         var customerID = result[i].customerID;
         var orderNotes = result[i].orderNotes;
         var orderDateTime = result[i].orderDateTime;
+        var orderStatus = result[i].orderStatus;
         var orderItems = result[i].orderItems;
+        var totalOrderPrice = result[i].totalOrderPrice;
+        var customerFirstname = result[i].customerFirstname;
 
-        createItem(orderID, customerID, orderNotes, orderDateTime, orderItems);
+        if (orderStatus !== "pending") {
+          createItem(
+            orderID,
+            customerID,
+            orderNotes,
+            orderDateTime,
+            orderItems,
+            totalOrderPrice,
+            customerFirstname
+          );
+        }
       }
     }
   };
@@ -31,13 +44,23 @@ function createItem(
   customerID,
   orderNotes,
   orderDateTime,
-  orderItems
+  orderItems,
+  totalOrderPrice,
+  customerFirstname
 ) {
   // Create DIV to hold new menu item
   var invoiceItemDiv = document.createElement("div");
   invoiceItemDiv.classList.add("invoice-item");
   invoiceItemDiv.id = orderID;
-  invoiceItemDiv.onclick = openPopup;
+  invoiceItemDiv.onclick = function () {
+    openPopup(
+      orderID,
+      customerFirstname,
+      orderDateTime,
+      orderItems,
+      totalOrderPrice
+    );
+  };
 
   // Create invoice item order id div
   var orderIdDiv = document.createElement("div");
@@ -51,7 +74,9 @@ function createItem(
   var invoiceTotalDiv = document.createElement("div");
   invoiceTotalDiv.classList.add("invoice-item-total");
 
-  var totalText = document.createTextNode("Total: 20");
+  var totalText = document.createTextNode(
+    "Total: $" + totalOrderPrice.toFixed(2)
+  );
   var invoiceTotalText = document.createElement("h5");
   invoiceTotalText.appendChild(totalText);
   invoiceTotalDiv.appendChild(invoiceTotalText);
@@ -60,7 +85,7 @@ function createItem(
   var invoiceDateDiv = document.createElement("div");
   invoiceDateDiv.classList.add("invoice-item-date");
 
-  var dateText = document.createTextNode(orderDateTime);
+  var dateText = document.createTextNode("Date: " + orderDateTime);
   var invoiceDateText = document.createElement("h5");
   invoiceDateText.appendChild(dateText);
   invoiceDateDiv.appendChild(invoiceDateText);

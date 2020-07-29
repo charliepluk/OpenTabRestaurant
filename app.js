@@ -47,6 +47,7 @@ app.get("*", function (req, res, next) {
 app.use("/", require("./routes/pages"));
 app.use("/users", require("./routes/user"));
 app.use("/menu", require("./routes/menu"));
+app.use("/orders", require("./routes/orders"));
 app.use("/invoice", require("./routes/invoice"));
 app.use("/customer", require("./routes/customer"));
 app.use("/account", require("./routes/account"));

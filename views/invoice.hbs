@@ -48,14 +48,16 @@
     <div class="invoice-container">
       <div class="invoice-popup-container" id="invoicePopup">
         <div class="invoice-popup">
-          <h2>Order#1234153</h2>
-          <h5>Customer: Cam</h5>
-          <h5>Ordered On: <span>07/27/2020 10:00 PM</span></h5>
+          <h2 id="popupOrderID"></h2>
+          <h5 id="popupOrderCustomer"></h5>
+          <h5>Ordered On: <span id="popupOrderDateTime"></span></h5>
 
-          <h3>Ordered Items:</h3>
-          <p>3x Budlight <span>$3.00</span></p>
-          <p>2x Angry Orchards <span>$3.00</span></p>
-          <h4>Total: <span>$12.00</span></h4>
+          <div class="popupOrderedItems">
+            <h3>Ordered Items:</h3>
+            <div id="popupOrderedItemsList">
+            </div>
+            <h4>Total: <span id="popupOrderTotal">$12.00</span></h4>
+          </div>
 
           <div class="invoice-popup-controls">
             <button onclick="closePopup()">Close</button>

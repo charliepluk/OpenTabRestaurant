@@ -18,8 +18,9 @@ router.post("/register", (req, res) => {
     email,
     phone,
     address,
-    zipcode,
+    city,
     state,
+    zipcode,
     restPassword,
     passwordConfirm,
   } = req.body;
@@ -61,7 +62,6 @@ router.post("/register", (req, res) => {
 
       // Hash the password before inserting to DB
       let hashedPassword = await bcrypt.hash(restPassword, 8);
-      console.log(hashedPassword);
 
       db.query(
         "INSERT INTO restaurants SET ?",
@@ -72,8 +72,9 @@ router.post("/register", (req, res) => {
           email: email,
           phone: phone,
           address: address,
-          zipcode: zipcode,
+          city: city,
           state: state,
+          zipcode: zipcode,
           openTime: openTime,
           closeTime: closeTime,
           restPassword: hashedPassword,
@@ -98,7 +99,6 @@ router.get("/login", (req, res) => {
 
 // Login Process
 router.post("/login", (req, res, next) => {
-  console.log("Authenticating");
   passport.authenticate("local", {
     successRedirect: "/menu",
     failureRedirect: "/users/login",

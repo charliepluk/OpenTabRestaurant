@@ -17,6 +17,8 @@ router.post("/insert", (req, res) => {
   const { itemName, itemPrice, itemDescription, itemType } = req.body;
   const restID = req.user.restID;
 
+  const fixedItemPrice = parseFloat(itemPrice).toFixed(2);
+
   if (itemDescription === null || itemDescription === undefined) {
     itemDescription = "";
   }
@@ -26,7 +28,7 @@ router.post("/insert", (req, res) => {
     {
       restID: restID,
       itemName: itemName,
-      itemPrice: itemPrice,
+      itemPrice: fixedItemPrice,
       itemDescription: itemDescription,
       itemType: itemType,
     },
@@ -51,23 +53,24 @@ router.post("/delete", function (req, res) {
 // UPDATE MENU ITEM
 router.post("/update", function (req, res) {
   console.log(req.body);
-  const { itemID, itemName, itemPrice, itemDescription, itemType } = req.body;
+  const { itemID, itemName, itemPrice, itemDescription } = req.body;
+
+  const fixedItemPrice = parseFloat(itemPrice).toFixed(2);
 
   db.query(
     `UPDATE items SET ? WHERE itemID="${itemID}"`,
     {
       itemName: itemName,
-      itemPrice: itemPrice,
+      itemPrice: fixedItemPrice,
       itemDescription: itemDescription,
-      itemType: itemType,
     },
     (err, result) => {
       if (err) {
         console.log("Unable to Update Item!");
-        res.render("menu");
+        res.redirect("/menu");
       } else {
         console.log("Updated Item!");
-        res.render("menu");
+        res.redirect("/menu");
       }
     }
   );
