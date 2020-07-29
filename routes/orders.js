@@ -23,8 +23,10 @@ router.post("/update", function (req, res) {
     (err, result) => {
       if (err) {
         console.log("Unable to Update Order Status!");
+        res.redirect("/menu");
       } else {
         console.log("Updated Orders!");
+        res.redirect("/menu");
       }
     }
   );

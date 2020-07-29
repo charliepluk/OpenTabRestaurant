@@ -40,11 +40,12 @@ function convertMilitaryToStandardTime(militaryTime) {
 }
 
 function getDateText(dateTimeText) {
-  dateText = dateTimeText.split("T0")[0].split("-");
+  console.log(dateTimeText);
+  dateText = dateTimeText.split("T")[0].split("-");
   return dateText[1] + "-" + dateText[2] + "-" + dateText[0];
 }
 
 function getTimeText(dateTimeText) {
-  unformatedTimeText = dateTimeText.split("T0")[1].split(".")[0];
+  unformatedTimeText = dateTimeText.split("T")[1].split(".")[0];
   return convertMilitaryToStandardTime(unformatedTimeText);
 }

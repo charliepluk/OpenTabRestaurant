@@ -20,7 +20,7 @@ function loadInvoiceItems() {
         var totalOrderPrice = result[i].totalOrderPrice;
         var customerFirstname = result[i].customerFirstname;
 
-        if (orderStatus !== "pending") {
+        if (orderStatus === "completed") {
           createItem(
             orderID,
             customerID,
