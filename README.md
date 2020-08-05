@@ -38,7 +38,7 @@ The GitHub repository link for the mobile application for customers is: https://
 2. Open a browser window and navigate to: [http://localhost:8000](http://localhost:8000)
 
 ## Demo video
-
+Link: https://youtu.be/2mpGRJlM1mM
 
 
 ## Contributors
