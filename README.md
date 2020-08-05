@@ -19,6 +19,7 @@ The GitHub repository link for the mobile application for customers is: https://
 ## Getting Started
 ### Installation and Setup
 1. Install [Node.js](https://nodejs.org/) & MySQL (XAMPP on Windows/MAMP on MAC) if you haven't already.
+
 2. Clone this repository and install its dependencies.
 
 		> git clone git://github.com/charliepluk/OpenTabRestaurant.git OpenTabRestaurant
@@ -30,7 +31,7 @@ The GitHub repository link for the mobile application for customers is: https://
 ### Run
 1. In XAMP or MAMP start the MySQL Sever on Port 3306.
 
-2.From within the OpenTabRestaurant directory start the server.
+3. From within the OpenTabRestaurant directory start the server.
 
 		> npm start
 		
